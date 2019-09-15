@@ -1,7 +1,8 @@
 import React from 'react';
+
 import food from './food_icon.png';
 import water from './water_drop.png'
-import { Map, GoogleApiWrapper, Marker, Polyline } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, Polyline, Polygon } from 'google-maps-react';
 
 const mapStyles = {
   width: '100%',
@@ -41,7 +42,16 @@ export class MapContainer extends React.Component{
                   {lat: 18.009660, lng: -76.799557}, 
                   {lat: 18.013118, lng: -76.790825}],
                 [{lat: 18.024921, lng: -76.854274}, 
-                  {lat: 17.974969, lng: -76.800062}]]
+                  {lat: 17.974969, lng: -76.800062}]],
+      network_down_polygons: [
+          [{lat: 18.462025, lng: -77.451718}, 
+            {lat: 18.301318, lng: -77.364611}, 
+            {lat: 18.307679, lng: -77.146054},
+            {lat: 18.444764, lng: -77.182970}], 
+            [{lat: 18.250526, lng: -76.673531},
+              {lat: 18.170794, lng: -76.640641},
+              {lat: 18.061649, lng: -76.295683},
+              {lat: 18.155910, lng: -76.358665}]]
     }
   }
 
@@ -74,17 +84,36 @@ export class MapContainer extends React.Component{
     })
   }
 
-
+  displayNetworkPolygons = () => {
+    return this.state.network_down_polygons.map((polygon) => {
+      return <Polygon
+        path={polygon}
+        key={1}
+        options={{
+            fillColor: "#000",
+            fillOpacity: 0.4,
+            strokeColor: "#000",
+            strokeOpacity: 1,
+            strokeWeight: 1
+        }}
+        onClick={() => {
+            console.log("ahmet")
+      }}/>
+    })
+  }
   render() {
+    const {filter} = this.props;
+    const { resource, roads, network } = filter; 
     return (
       <Map
         google={this.props.google}
         zoom={9}
         style={mapStyles}
-        initialCenter={{ lat: 18.00681, lng: -77}}
+        initialCenter={{ lat: 18, lng: -76.8}}
       >
-        {this.displayMarkers()}
-        {this.displayLines()}
+        {resource ? this.displayMarkers() : ''}
+        {roads ? this.displayLines() : '' }
+        {network ? this.displayNetworkPolygons() : ''}
       </Map>
   );
   }
