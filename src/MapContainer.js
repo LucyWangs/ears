@@ -103,7 +103,7 @@ export class MapContainer extends React.Component{
   }
   render() {
     const {filter} = this.props;
-    const { resource, roads } = filter; 
+    const { resource, roads, network } = filter; 
     return (
       <Map
         google={this.props.google}
@@ -113,7 +113,7 @@ export class MapContainer extends React.Component{
       >
         {resource ? this.displayMarkers() : ''}
         {roads ? this.displayLines() : '' }
-        {this.displayNetworkPolygons()}
+        {network ? this.displayNetworkPolygons() : ''}
       </Map>
   );
   }

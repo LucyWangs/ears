@@ -1,7 +1,7 @@
 import React from 'react';
 import { FilterItem } from './FilterItem/FilterItem';
-// import { PolygonFilter } from './FilterItem/PolygonFilter';
-import Switch from "./FilterItem/Switch";
+import { FilterItem2 } from './FilterItem2/FilterItem';
+import { FilterItem3 } from './FilterItem3/FilterItem';
 
 export class Filter extends React.Component {
     state = {
@@ -9,22 +9,13 @@ export class Filter extends React.Component {
         roads: false
     }
   
-    // handleFilterToggle (property) {
-    //     // const accessor = e.target.getAttribute("property")
-    //     const newState = {}
-    //     const oldState = this.state[property]
-    //     newState[property] = !oldState
-    //     this.setState(newState)
-    //     console.log(newState)
-    // }
-    
     render () {
         const {handleToggle, filter} = this.props;
         return (
             <>
-                {/* <FilterItem handleToggle={ this.handleFilterToggle.bind(this) } property="resource" title="Food/Water" isOn={ resource }/> */}
+                <FilterItem3 handleToggle={ handleToggle } property="resource" title="Food/Water" isOn={filter.resource} />
                 <FilterItem handleToggle={ handleToggle } property="roads" title="Broken Roads" isOn={ filter.roads } />
-                {/* <PolygonFilter handleToggle={ handleToggle } property="roads" title="No Network" isOn={ filter.network} /> */}
+                <FilterItem2 handleToggle={ handleToggle } property="network" title="No Network" isOn={ filter.network }/>
             </>
         )
     }
