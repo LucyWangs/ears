@@ -1,5 +1,8 @@
 import React from 'react';
-import { Map, GoogleApiWrapper, Marker, Polyline, HeatMap, Polygon } from 'google-maps-react';
+
+import food from './food_icon.png';
+import water from './water_drop.png'
+import { Map, GoogleApiWrapper, Marker, Polyline, Polygon } from 'google-maps-react';
 
 const mapStyles = {
   width: '100%',
@@ -10,13 +13,25 @@ export class MapContainer extends React.Component{
   constructor(props) {
     super(props);
 
+    var foodImage = {
+      url: food,
+      size: new this.props.google.maps.Size(25, 26)};
+
+    var waterImage = {
+      url: water,
+      size: new this.props.google.maps.Size(20, 27)};
+
     this.state = {
-      stores: [{lat: 18.006816, lng: -76.800967},
-              {latitude: 17.97089, longitude: -76.890864},
-              {latitude: 17.959015, longitude: -76.712412},
-              {latitude: 18.096774, longitude: -76.809543},
-              {latitude: 18.038464, longitude: -77.504587},
-              {latitude: 18.029791, longitude: -76.803874}],
+      resources: [{latitude: 18.006816, longitude: -76.800967, pic: foodImage},
+              {latitude: 17.97089, longitude: -76.890864, pic: foodImage},
+              {latitude: 17.959015, longitude: -76.712412, pic: foodImage},
+              {latitude: 18.096774, longitude: -76.809543, pic: foodImage},
+              {latitude: 18.038464, longitude: -77.504587, pic: foodImage},
+              {latitude: 18.029791, longitude: -76.803874, pic: waterImage},
+              {latitude: 17.972734, longitude: -77.607763, pic: waterImage},
+              {latitude: 18.167732, longitude: -77.493403, pic: waterImage},
+              {latitude: 18.179101, longitude: -77.645785, pic: waterImage}],
+
       lines: [[{ lat: 18.025406, lng: -76.821931}, 
                 {lat: 18.026789, lng: -76.816291}, 
                 {lat: 18.027481, lng: -76.811561}, 
@@ -41,13 +56,18 @@ export class MapContainer extends React.Component{
   }
 
   displayMarkers = () => {
-    return this.state.stores.map((store, index) => {
+    
+      
+    return this.state.resources.map((resource, index) => {
       return <Marker key={index} id={index} position={{
-       lat: store.latitude,
-       lng: store.longitude
+       lat: resource.latitude,
+       lng: resource.longitude
      }}
+     icon= {resource.pic}
      onClick={() => console.log("You clicked me!")} />
     })
+
+
   }
 
   displayLines = () => {

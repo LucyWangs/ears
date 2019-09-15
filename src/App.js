@@ -1,23 +1,40 @@
 import React from 'react';
 import logo from './logo.svg';
+import food from './food_icon.png'
 import MapContainer from "./MapContainer";
 import { Columns } from 'react-bulma-components';
 import './App.sass';
 import './App.css';
+import { brotliDecompress } from 'zlib';
 
 function App() {
+  var styleName = {
+    fontWeight: "bold",
+    fontSize: 30
+  }
+
+  var styleNavBar = {
+    marginLeft: '50px;'
+  }
   
   return (
     <div className="App">
       <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
         <div id="navMenu" class="navbar-menu">
           <div class="navbar-brand">
-            <a href="#" class="navbar-item is-active">Home</a>
-            <a href="#" class="navbar-item">About</a>
-            <a href="#" class="navbar-item">Search</a>
+            {/* <a href="#" class="navbar-item is-active">Home</a> */}
+            <img href="#" class="navbar-item" src={food}></img>
+            <a href="#" class="navbar-item" style={styleName}>EARS</a>
+            
+            
+          </div>
+          <div class="navbar-end">
+            <a href="#" class="navbar-item" style = {styleNavBar}>About</a>
             <div class="buttons">
                 <a href="http://www.give.org/for-donors/about-specific-giving-guidance/disaster-relief-donations" 
-                  class="button" target="_blank">Donate</a>
+                  class="button" 
+                  target="_blank" 
+                  style={styleNavBar}>Donate</a>
             </div>
           </div>
             
