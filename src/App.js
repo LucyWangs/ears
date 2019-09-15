@@ -48,7 +48,10 @@ export class App extends React.Component {
           <div class="navbar-end">
             <a href="#" class="navbar-item" style = {styleNavBar}>About</a>
             <div class="buttons">
-                <a class="button" style = {styleNavBar}>Donate</a>
+                <a href="http://www.give.org/for-donors/about-specific-giving-guidance/disaster-relief-donations" 
+                  class="button" 
+                  target="_blank" 
+                  style={styleNavBar}>Donate</a>
             </div>
           </div>
             
