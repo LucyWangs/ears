@@ -16,7 +16,8 @@ function App() {
             <a href="#" class="navbar-item">About</a>
             <a href="#" class="navbar-item">Search</a>
             <div class="buttons">
-                <a class="button">Donate</a>
+                <a href="http://www.give.org/for-donors/about-specific-giving-guidance/disaster-relief-donations" 
+                  class="button" target="_blank">Donate</a>
             </div>
           </div>
             

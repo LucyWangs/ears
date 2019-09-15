@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, GoogleApiWrapper, Marker, Polyline } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, Polyline, HeatMap } from 'google-maps-react';
 
 const mapStyles = {
   width: '100%',
@@ -27,7 +27,8 @@ export class MapContainer extends React.Component{
                   {lat: 18.009660, lng: -76.799557}, 
                   {lat: 18.013118, lng: -76.790825}],
                 [{lat: 18.024921, lng: -76.854274}, 
-                  {lat: 17.974969, lng: -76.800062}]]
+                  {lat: 17.974969, lng: -76.800062}]],
+      points: [{lat: 18.051235 , lng: -76.843574}]
     }
   }
 
@@ -55,6 +56,15 @@ export class MapContainer extends React.Component{
     })
   }
 
+  displayHeatMaps = () => {
+    return <HeatMap
+      gradient={"#FF0000"}
+      opacity={1}
+      positions={this.state.points}
+      radius={200}
+      />
+  }
+
 
   render() {
     return (
@@ -66,6 +76,7 @@ export class MapContainer extends React.Component{
       >
         {this.displayMarkers()}
         {this.displayLines()}
+        {this.displayHeatMaps()}
       </Map>
   );
   }
