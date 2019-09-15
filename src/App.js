@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
         <div id="navMenu" class="navbar-menu">
-          <div class="navbar-end">
+          <div class="navbar-brand">
             <a href="#" class="navbar-item is-active">Home</a>
             <a href="#" class="navbar-item">About</a>
             <a href="#" class="navbar-item">Search</a>
