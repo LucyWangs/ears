@@ -25,7 +25,7 @@ function App() {
       </nav>
       <div class="row">
         <div class="columnLeft">
-          <input className="input" type="text" placeholder="djflskdjflk" />
+          <input className="input" type="text" placeholder="Search" />
         </div>
         <div class="column">
           <MapContainer/>
