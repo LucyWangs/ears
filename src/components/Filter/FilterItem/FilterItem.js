@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
-// import './App.css';
 import Switch from "./Switch";
-import { bindExpression } from '@babel/types';
 
 export class FilterItem extends React.Component {
 
     handleFilterToggle () {
         const { handleToggle, property } = this.props;
         handleToggle(property)
-        // const accessor = e.target.getAttribute("property")
-        // const newState = {}
-        // const oldState = this.state[accessor]
-        // newState[accessor] = !oldState
-        // this.setState(newState)
     } 
 
     render() { 
