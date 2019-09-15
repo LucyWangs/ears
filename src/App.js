@@ -58,11 +58,12 @@ export class App extends React.Component {
         
         <div class="column is-3 section" style={{ paddingTop: 15 }}>
           
-          <input className="input is-full-width is-size-5" style={{ marginBottom: 10 }} type="text" placeholder="Search" />
+          <input className="input is-full-width is-size-5" style={{ marginBottom: 50 }} type="text" placeholder="Search" />
           <Filter handleToggle={this.handleFilterToggle.bind(this)} filter={this.state}/>
           <br/>
-          <hr/>
+          <br/>
 
+          <br/>
           <br/>
           <div class="paragraph">
             EARS is the Emergency Assistance Response System. Our goal is to provide accurate, reliable information about the scope and depth of disasters that have affected different locations. Therefore, organizations such as the Red Cross and other disaster relief efforts know which areas have been deeply affected by different natural disasters and where they can and should focus their efforts.           
