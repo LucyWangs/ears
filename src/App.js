@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import MapContainer from "./MapContainer";
-import { Columns } from 'react-bulma-components';
+import { Filter } from './components/Filter/Filter';
+import Switch from "./components/Filter/FilterItem/Switch";
 import './App.sass';
 import './App.css';
 
 function App() {
-  
+
   return (
     <div className="App">
       <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
@@ -24,8 +24,9 @@ function App() {
 
       </nav>
       <div class="row">
-        <div class="columnLeft">
-          <input className="input" type="text" placeholder="Search" />
+        <div class="columnLeft section">
+          <input className="input is-full-width" type="text" placeholder="Search" />
+          <Filter />
         </div>
         <div class="column">
           <MapContainer/>
