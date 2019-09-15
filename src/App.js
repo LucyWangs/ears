@@ -55,12 +55,6 @@ export class App extends React.Component {
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="columnLeft">
-            <input className="input" type="text" placeholder="Search" />
-          </div>
-            
-        </div>
 
       </nav>
       <div class="row">
