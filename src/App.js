@@ -44,7 +44,6 @@ export class App extends React.Component {
             
           </div>
           <div class="navbar-end">
-            <a href="#" class="navbar-item" style = {styleNavBar}>About</a>
             <div class="buttons">
                 <a href="http://www.give.org/for-donors/about-specific-giving-guidance/disaster-relief-donations" 
                   class="button" 
@@ -61,9 +60,10 @@ export class App extends React.Component {
           
           <input className="input is-full-width is-size-5" style={{ marginBottom: 10 }} type="text" placeholder="Search" />
           <Filter handleToggle={this.handleFilterToggle.bind(this)} filter={this.state}/>
-
+          <br/>
           <hr/>
 
+          <br/>
           <div class="paragraph">
             EARS is the Emergency Assistance Response System. Our goal is to provide accurate, reliable information about the scope and depth of disasters that have affected different locations. Therefore, organizations such as the Red Cross and other disaster relief efforts know which areas have been deeply affected by different natural disasters and where they can and should focus their efforts.           
             We have three different categories of information that we provide- which regions do not have food/water, which roads or no longer functional, and which regions do not have network. You can choose to display all of these or toggle them until you have the display you would like. 
