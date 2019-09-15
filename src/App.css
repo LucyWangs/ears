@@ -48,3 +48,7 @@
   display: table;
   clear: both;
 }
+
+.paragraph {
+  text-align: left;
+}
