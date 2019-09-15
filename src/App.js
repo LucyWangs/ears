@@ -1,22 +1,54 @@
 import React from 'react';
+import logo from './logo.svg';
+import food from './food_icon.png'
 import MapContainer from "./MapContainer";
 import { Filter } from './components/Filter/Filter';
-import Switch from "./components/Filter/FilterItem/Switch";
 import './App.sass';
 import './App.css';
+import { brotliDecompress } from 'zlib';
 
-function App() {
+const styleName = {
+  fontWeight: "bold",
+  fontSize: 30
+}
 
-  return (
+const styleNavBar = {
+  marginLeft: '50px;'
+}
+
+export class App extends React.Component {
+  
+  state = {
+    resource : true, 
+    roads: false, 
+    network: false
+  }
+
+  handleFilterToggle (property) {
+      // const accessor = e.target.getAttribute("property")
+      const newState = {}
+      const oldState = this.state[property]
+      newState[property] = !oldState
+      this.setState(newState)
+      console.log(newState)
+  }
+  
+  render() {
+    return (
     <div className="App">
       <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
         <div id="navMenu" class="navbar-menu">
           <div class="navbar-brand">
-            <a href="#" class="navbar-item is-active">Home</a>
-            <a href="#" class="navbar-item">About</a>
-            <a href="#" class="navbar-item">Search</a>
+            {/* <a href="#" class="navbar-item is-active">Home</a> */}
+            <img href="#" class="navbar-item" src={food}></img>
+            <a href="#" class="navbar-item" style={styleName}>EARS</a>
+            
+            
+          </div>
+          <div class="navbar-end">
+            <a href="#" class="navbar-item" style = {styleNavBar}>About</a>
             <div class="buttons">
-                <a class="button">Donate</a>
+                <a class="button" style = {styleNavBar}>Donate</a>
             </div>
           </div>
             
@@ -26,10 +58,10 @@ function App() {
       <div class="row">
         <div class="columnLeft section">
           <input className="input is-full-width" type="text" placeholder="Search" />
-          <Filter />
+          <Filter handleToggle={this.handleFilterToggle.bind(this)} filter={this.state}/>
         </div>
         <div class="column">
-          <MapContainer/>
+          <MapContainer filter={this.state}/>
         </div>
         
       </div>
@@ -91,7 +123,8 @@ function App() {
         </a>
       </header> */}
     </div>
-  );
+    );
+  }
 }
 
 
