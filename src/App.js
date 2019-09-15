@@ -64,11 +64,11 @@ export class App extends React.Component {
 
       </nav>
       <div class="row">
-        <div class="columnLeft section">
-          <input className="input is-full-width" type="text" placeholder="Search" />
+        <div class="column is-3 section" style={{ paddingTop: 15 }}>
+          <input className="input is-full-width is-size-5" style={{ marginBottom: 10 }} type="text" placeholder="Search" />
           <Filter handleToggle={this.handleFilterToggle.bind(this)} filter={this.state}/>
         </div>
-        <div class="column">
+        <div class="column" style={{ padding: 0 }}>
           <MapContainer filter={this.state}/>
         </div>
         
